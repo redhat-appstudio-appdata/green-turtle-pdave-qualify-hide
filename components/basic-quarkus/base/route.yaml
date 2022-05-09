@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: basic-quarkus
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: basic-quarkus
+    app.kubernetes.io/part-of: green-turtle
+  name: basic-quarkus
+  namespace: pdave
+spec:
+  port:
+    targetPort: 8081
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: basic-quarkus
+    weight: 100
+status: {}
