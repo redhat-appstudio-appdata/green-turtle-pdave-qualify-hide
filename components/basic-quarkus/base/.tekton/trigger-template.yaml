@@ -20,6 +20,13 @@ spec:
         pipelines.appstudio.openshift.io/type: build
       creationTimestamp: null
       generateName: basic-quarkus-
+      labels:
+        build.appstudio.openshift.io/application: green-turtle
+        build.appstudio.openshift.io/build: "true"
+        build.appstudio.openshift.io/component: basic-quarkus
+        build.appstudio.openshift.io/type: build
+        build.appstudio.openshift.io/version: "0.1"
+        pipelines.appstudio.openshift.io/type: build
       namespace: pdave
     spec:
       params:
@@ -32,7 +39,7 @@ spec:
       - name: path-context
         value: .
       pipelineRef:
-        bundle: quay.io/redhat-appstudio/build-templates-bundle:19cf17aa63a1c65eee897af8430dbb9c1682d77a
+        bundle: quay.io/redhat-appstudio/build-templates-bundle:7170560e64e33af5fc37ba01531cbefdd2dc4fce
         name: docker-build
       workspaces:
       - name: workspace
